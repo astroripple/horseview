@@ -1,12 +1,18 @@
-from ..sessioncontroll import baseobj, strobj, baseobj, intobj, colobj, relobj, fkyobj, bkrobj
+from ..sessioncontroll import (
+    baseobj,
+    strobj,
+    baseobj,
+    intobj,
+    colobj,
+    relobj,
+    fkyobj,
+    bkrobj,
+)
 
 
 class TrainAnalysisData(baseobj):
-    __tablename__ = 'train_analysis'
-    racehorsekey = colobj(
-        strobj,
-        fkyobj('racehorse.racehorsekey'),
-        primary_key=True)
+    __tablename__ = "train_analysis"
+    racehorsekey = colobj(strobj, fkyobj("racehorse.racehorsekey"), primary_key=True)
     racekey = colobj(strobj)
     num = colobj(intobj)
     train_type = colobj(strobj)

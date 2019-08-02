@@ -1,22 +1,25 @@
-from ..sessioncontroll import baseobj, strobj, baseobj, intobj, colobj, relobj, fkyobj, bkrobj
+from ..sessioncontroll import (
+    baseobj,
+    strobj,
+    baseobj,
+    intobj,
+    colobj,
+    relobj,
+    fkyobj,
+    bkrobj,
+)
 
 
 class BangumiData(baseobj):
-    __tablename__ = 'bangumi'
+    __tablename__ = "bangumi"
     racekey = colobj(strobj, primary_key=True)
     # 親に対して
-    kaisaikey = colobj(strobj, fkyobj('kaisai.kaisaikey'))
+    kaisaikey = colobj(strobj, fkyobj("kaisai.kaisaikey"))
     # 子に対して
-    racehorses = relobj(
-        "RacehorseData",
-        backref=bkrobj('bangumi'),
-        innerjoin=True)
+    racehorses = relobj("RacehorseData", backref=bkrobj("bangumi"), innerjoin=True)
 
     # 1:1
-    returninfo = relobj(
-        "ReturninfoData",
-        uselist=False,
-        backref=bkrobj('bangumi'))
+    returninfo = relobj("ReturninfoData", uselist=False, backref=bkrobj("bangumi"))
     ymd = colobj(strobj)
     start_time = colobj(strobj)
     distance = colobj(intobj)

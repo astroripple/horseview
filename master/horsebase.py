@@ -1,9 +1,18 @@
-from ..sessioncontroll import baseobj, strobj, baseobj, intobj, colobj, relobj, fkyobj, bkrobj
+from ..sessioncontroll import (
+    baseobj,
+    strobj,
+    baseobj,
+    intobj,
+    colobj,
+    relobj,
+    fkyobj,
+    bkrobj,
+)
 
 
 class HorsebaseData(baseobj):
-    __tablename__ = 'horsebase'
-    blood = colobj(intobj, fkyobj('racehorse.blood'), primary_key=True)
+    __tablename__ = "horsebase"
+    blood = colobj(intobj, fkyobj("racehorse.blood"), primary_key=True)
     horse = colobj(strobj)
     sex = colobj(intobj)
     hair = colobj(intobj)

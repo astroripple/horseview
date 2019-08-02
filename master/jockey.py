@@ -1,8 +1,17 @@
-from ..sessioncontroll import baseobj, strobj, baseobj, intobj, colobj, relobj, fkyobj, bkrobj
+from ..sessioncontroll import (
+    baseobj,
+    strobj,
+    baseobj,
+    intobj,
+    colobj,
+    relobj,
+    fkyobj,
+    bkrobj,
+)
 
 
 class JockeyData(baseobj):
-    __tablename__ = 'jockey'
+    __tablename__ = "jockey"
     jockey_code = colobj(intobj, primary_key=True)
     delete_flg = colobj(intobj)
     delete_ymd = colobj(intobj)

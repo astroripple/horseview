@@ -5,9 +5,8 @@ from flask_migrate import Migrate, MigrateCommand
 import os
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///{}/jrdb.db'.format(
-    os.environ['DB'])
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///{}/jrdb.db".format(os.environ["DB"])
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 

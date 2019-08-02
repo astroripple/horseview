@@ -1,9 +1,18 @@
-from ..sessioncontroll import baseobj, strobj, baseobj, intobj, colobj, relobj, fkyobj, bkrobj
+from ..sessioncontroll import (
+    baseobj,
+    strobj,
+    baseobj,
+    intobj,
+    colobj,
+    relobj,
+    fkyobj,
+    bkrobj,
+)
 
 
 class SeisekiRaceData(baseobj):
-    __tablename__ = 'seisekirace'
-    racekey = colobj(strobj, fkyobj('seiseki.racekey'), primary_key=True)
+    __tablename__ = "seisekirace"
+    racekey = colobj(strobj, fkyobj("seiseki.racekey"), primary_key=True)
     furlongtime1 = colobj(intobj)
     furlongtime2 = colobj(intobj)
     furlongtime3 = colobj(intobj)

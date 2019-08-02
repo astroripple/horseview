@@ -1,16 +1,25 @@
-from ..sessioncontroll import baseobj, strobj, baseobj, intobj, colobj, relobj, fkyobj, bkrobj
+from ..sessioncontroll import (
+    baseobj,
+    strobj,
+    baseobj,
+    intobj,
+    colobj,
+    relobj,
+    fkyobj,
+    bkrobj,
+)
 
 
 class KaisaiData(baseobj):
-    __tablename__ = 'kaisai'
+    __tablename__ = "kaisai"
     kaisaikey = colobj(strobj, primary_key=True)
     # 子に対して
-    races = relobj('BangumiData', backref=bkrobj('kaisai'), innerjoin=True)
+    races = relobj("BangumiData", backref=bkrobj("kaisai"), innerjoin=True)
     ymd = colobj(intobj)
     kaisai_kbn = colobj(intobj)
     day_of_week = colobj(strobj)
     course_name = colobj(strobj)
-    tenko = colobj(intobj, fkyobj('tenkomaster.tenko'))
+    tenko = colobj(intobj, fkyobj("tenkomaster.tenko"))
     turf_baba = colobj(intobj)
     turf_baba_abst = colobj(intobj)
     turf_baba_detail = colobj(intobj)

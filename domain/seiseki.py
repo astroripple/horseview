@@ -1,8 +1,17 @@
-from ..sessioncontroll import baseobj, strobj, baseobj, intobj, colobj, relobj, fkyobj, bkrobj
+from ..sessioncontroll import (
+    baseobj,
+    strobj,
+    baseobj,
+    intobj,
+    colobj,
+    relobj,
+    fkyobj,
+    bkrobj,
+)
 
 
 class SeisekiData(baseobj):
-    __tablename__ = 'seiseki'
+    __tablename__ = "seiseki"
     racehorsekey = colobj(strobj, primary_key=True)
     racekey = colobj(strobj)
     bacode = colobj(intobj)
@@ -10,10 +19,7 @@ class SeisekiData(baseobj):
     kai = colobj(intobj)
     day = colobj(intobj)
     raceno = colobj(intobj)
-    seisekirace = relobj(
-        "SeisekiRaceData",
-        uselist=False,
-        backref=bkrobj("seiseki"))
+    seisekirace = relobj("SeisekiRaceData", uselist=False, backref=bkrobj("seiseki"))
     num = colobj(intobj)
     raceseisekikey = colobj(strobj)
     blood = colobj(intobj)

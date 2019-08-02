@@ -1,9 +1,18 @@
-from ..sessioncontroll import baseobj, strobj, baseobj, intobj, colobj, relobj, fkyobj, bkrobj
+from ..sessioncontroll import (
+    baseobj,
+    strobj,
+    baseobj,
+    intobj,
+    colobj,
+    relobj,
+    fkyobj,
+    bkrobj,
+)
 
 
 class ReturninfoData(baseobj):
-    __tablename__ = 'returninfo'
-    racekey = colobj(strobj, fkyobj('bangumi.racekey'), primary_key=True)
+    __tablename__ = "returninfo"
+    racekey = colobj(strobj, fkyobj("bangumi.racekey"), primary_key=True)
     win1_num = colobj(intobj)
     win1_ret = colobj(intobj)
     win2_num = colobj(intobj)

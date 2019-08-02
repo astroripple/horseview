@@ -1,6 +1,13 @@
 # テーブル一覧をインポートする
 from .domain.bangumi import BangumiData
-from .domain.index import HorseIndex, JockeyIndex, TrainerIndex, OikiriStateIndex, TrainCourseCodeIndex, HobokusakiIndex
+from .domain.index import (
+    HorseIndex,
+    JockeyIndex,
+    TrainerIndex,
+    OikiriStateIndex,
+    TrainCourseCodeIndex,
+    HobokusakiIndex,
+)
 from .domain.kaisai import KaisaiData
 from .domain.racehorse import RacehorseData
 from .domain.returninfo import ReturninfoData

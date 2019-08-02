@@ -1,54 +1,43 @@
-from ..sessioncontroll import baseobj, strobj, baseobj, intobj, colobj, relobj, fkyobj, bkrobj
+from ..sessioncontroll import (
+    baseobj,
+    strobj,
+    baseobj,
+    intobj,
+    colobj,
+    relobj,
+    fkyobj,
+    bkrobj,
+)
 
 
 class RacehorseData(baseobj):
-    __tablename__ = 'racehorse'
-    racehorsekey = colobj(
-        strobj,
-        fkyobj('seiseki.racehorsekey'),
-        primary_key=True)
+    __tablename__ = "racehorse"
+    racehorsekey = colobj(strobj, fkyobj("seiseki.racehorsekey"), primary_key=True)
     # 親に対して
-    racekey = colobj(strobj, fkyobj('bangumi.racekey'))
+    racekey = colobj(strobj, fkyobj("bangumi.racekey"))
     # 1:1
     trainanalysis = relobj(
-        "TrainAnalysisData",
-        uselist=False,
-        backref=bkrobj("racehorse"),
-        innerjoin=True)
+        "TrainAnalysisData", uselist=False, backref=bkrobj("racehorse"), innerjoin=True
+    )
     trainoikiri = relobj(
-        "TrainOikiriData",
-        uselist=False,
-        backref=bkrobj("racehorse"),
-        innerjoin=True)
+        "TrainOikiriData", uselist=False, backref=bkrobj("racehorse"), innerjoin=True
+    )
     horse_base = relobj(
-        "HorsebaseData",
-        uselist=False,
-        backref=bkrobj("racehorse"),
-        innerjoin=True)
+        "HorsebaseData", uselist=False, backref=bkrobj("racehorse"), innerjoin=True
+    )
     result = relobj(
-        "SeisekiData",
-        uselist=False,
-        foreign_keys=[racehorsekey],
-        innerjoin=False)
+        "SeisekiData", uselist=False, foreign_keys=[racehorsekey], innerjoin=False
+    )
     predict = relobj(
-        "PredictData",
-        uselist=False,
-        backref=bkrobj("racehorse"),
-        innerjoin=False)
+        "PredictData", uselist=False, backref=bkrobj("racehorse"), innerjoin=False
+    )
     # インデックスに対して
     horseidx = relobj("HorseIndex", uselist=False, backref=bkrobj("racehorse"))
-    jockeyidx = relobj(
-        "JockeyIndex",
-        uselist=False,
-        backref=bkrobj("racehorse"))
-    traineridx = relobj(
-        "TrainerIndex",
-        uselist=False,
-        backref=bkrobj("racehorse"))
+    jockeyidx = relobj("JockeyIndex", uselist=False, backref=bkrobj("racehorse"))
+    traineridx = relobj("TrainerIndex", uselist=False, backref=bkrobj("racehorse"))
     hobokusakiidx = relobj(
-        "HobokusakiIndex",
-        uselist=False,
-        backref=bkrobj("racehorse"))
+        "HobokusakiIndex", uselist=False, backref=bkrobj("racehorse")
+    )
     bacode = colobj(intobj)
 
     year = colobj(intobj)
@@ -102,37 +91,42 @@ class RacehorseData(baseobj):
     minarai = colobj(intobj)
     trainer_name = colobj(strobj)
     trainer_shozoku = colobj(strobj)
-    zenso_seiseki_key_1 = colobj(strobj, fkyobj('seiseki.raceseisekikey'))
-    zenso_seiseki_key_2 = colobj(strobj, fkyobj('seiseki.raceseisekikey'))
-    zenso_seiseki_key_3 = colobj(strobj, fkyobj('seiseki.raceseisekikey'))
-    zenso_seiseki_key_4 = colobj(strobj, fkyobj('seiseki.raceseisekikey'))
-    zenso_seiseki_key_5 = colobj(strobj, fkyobj('seiseki.raceseisekikey'))
+    zenso_seiseki_key_1 = colobj(strobj, fkyobj("seiseki.raceseisekikey"))
+    zenso_seiseki_key_2 = colobj(strobj, fkyobj("seiseki.raceseisekikey"))
+    zenso_seiseki_key_3 = colobj(strobj, fkyobj("seiseki.raceseisekikey"))
+    zenso_seiseki_key_4 = colobj(strobj, fkyobj("seiseki.raceseisekikey"))
+    zenso_seiseki_key_5 = colobj(strobj, fkyobj("seiseki.raceseisekikey"))
 
     zenso1 = relobj(
         "SeisekiData",
         uselist=False,
         foreign_keys=[zenso_seiseki_key_1],
-        innerjoin=False)
+        innerjoin=False,
+    )
     zenso2 = relobj(
         "SeisekiData",
         uselist=False,
         foreign_keys=[zenso_seiseki_key_2],
-        innerjoin=False)
+        innerjoin=False,
+    )
     zenso3 = relobj(
         "SeisekiData",
         uselist=False,
         foreign_keys=[zenso_seiseki_key_3],
-        innerjoin=False)
+        innerjoin=False,
+    )
     zenso4 = relobj(
         "SeisekiData",
         uselist=False,
         foreign_keys=[zenso_seiseki_key_4],
-        innerjoin=False)
+        innerjoin=False,
+    )
     zenso5 = relobj(
         "SeisekiData",
         uselist=False,
         foreign_keys=[zenso_seiseki_key_5],
-        innerjoin=False)
+        innerjoin=False,
+    )
 
     zenso_racekey_1 = colobj(strobj)
     zenso_racekey_2 = colobj(strobj)
