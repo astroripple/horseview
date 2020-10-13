@@ -20,6 +20,7 @@ class BangumiData(baseobj):
 
     # 1:1
     returninfo = relobj("ReturninfoData", uselist=False, backref=bkrobj("bangumi"))
+    umaren_odds = relobj("UmarenOddsData", uselist=False, backref=bkrobj("bangumi"))
     ymd = colobj(strobj)
     start_time = colobj(strobj)
     distance = colobj(intobj)

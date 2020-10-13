@@ -11,6 +11,7 @@ from .domain.index import (
 from .domain.kaisai import KaisaiData
 from .domain.racehorse import RacehorseData
 from .domain.returninfo import ReturninfoData
+from .domain.umaren_odds import UmarenOddsData
 from .domain.seiseki import SeisekiData
 from .domain.seisekirace import SeisekiRaceData
 from .domain.trainanalysis import TrainAnalysisData
