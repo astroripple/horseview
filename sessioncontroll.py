@@ -14,7 +14,6 @@ strobj = db.String(80)
 baseobj = db.Model
 intobj = db.Integer
 jsonobj = db.JSON
-dateobj = db.DateTime
 colobj = db.Column
 relobj = db.relationship
 fkyobj = db.ForeignKey
