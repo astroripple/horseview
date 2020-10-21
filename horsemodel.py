@@ -13,6 +13,7 @@ from .domain.racehorse import RacehorseData
 from .domain.returninfo import ReturninfoData
 from .domain.umaren_odds import UmarenOddsData
 from .domain.wide_odds import WideOddsData
+from .domain.wakuren_odds import WakurenOddsData
 from .domain.seiseki import SeisekiData
 from .domain.seisekirace import SeisekiRaceData
 from .domain.trainanalysis import TrainAnalysisData
