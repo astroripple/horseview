@@ -4,9 +4,7 @@ from ..sessioncontroll import (
     baseobj,
     intobj,
     colobj,
-    relobj,
     fkyobj,
-    bkrobj,
     jsonobj,
 )
 
