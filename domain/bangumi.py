@@ -23,6 +23,7 @@ class BangumiData(baseobj):
     umaren_odds = relobj("UmarenOddsData", uselist=False, backref=bkrobj("bangumi"))
     wide_odds = relobj("WideOddsData", uselist=False, backref=bkrobj("bangumi"))
     wakuren_odds = relobj("WakurenOddsData", uselist=False, backref=bkrobj("bangumi"))
+    predict_race = relobj("PredictRaceData", uselist=False, backref=bkrobj("bangumi"))
     ymd = colobj(strobj)
     start_time = colobj(strobj)
     distance = colobj(intobj)
