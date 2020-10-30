@@ -57,4 +57,3 @@ class JockeyData(baseobj):
     total_steeple_seiseki_3rd = colobj(intobj)
     total_steeple_seiseki_out = colobj(intobj)
     data_ymd = colobj(intobj)
-    jockey_index = colobj(intobj)
