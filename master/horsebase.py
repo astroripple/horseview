@@ -32,4 +32,4 @@ class HorsebaseData(baseobj):
     data_ymd = colobj(intobj)
     father_phylogeny = colobj(intobj)
     mother_phylogeny = colobj(intobj)
-    horse_index = colobj(intobj)
+

@@ -55,4 +55,3 @@ class TrainerData(baseobj):
     total_seiseki_steeple_3rd = colobj(intobj)
     total_seiseki_steeple_out = colobj(intobj)
     data_ymd = colobj(intobj)
-    trainer_index = colobj(intobj)

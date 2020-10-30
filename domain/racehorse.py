@@ -31,15 +31,7 @@ class RacehorseData(baseobj):
     predict = relobj(
         "PredictData", uselist=False, backref=bkrobj("racehorse"), innerjoin=False
     )
-    # インデックスに対して
-    horseidx = relobj("HorseIndex", uselist=False, backref=bkrobj("racehorse"))
-    jockeyidx = relobj("JockeyIndex", uselist=False, backref=bkrobj("racehorse"))
-    traineridx = relobj("TrainerIndex", uselist=False, backref=bkrobj("racehorse"))
-    hobokusakiidx = relobj(
-        "HobokusakiIndex", uselist=False, backref=bkrobj("racehorse")
-    )
     bacode = colobj(intobj)
-
     year = colobj(intobj)
     kai = colobj(intobj)
     day = colobj(intobj)

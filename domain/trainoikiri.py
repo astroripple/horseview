@@ -15,12 +15,6 @@ class TrainOikiriData(baseobj):
     racehorsekey = colobj(strobj, fkyobj("racehorse.racehorsekey"), primary_key=True)
     racekey = colobj(strobj)
     num = colobj(intobj)
-    oikiristateidx = relobj(
-        "OikiriStateIndex", uselist=False, backref=bkrobj("train_oikiri")
-    )
-    traincoureidx = relobj(
-        "TrainCourseCodeIndex", uselist=False, backref=bkrobj("train_oikri")
-    )
     day_of_week = colobj(strobj)
     train_date = colobj(strobj)
     kaisu = colobj(intobj)
