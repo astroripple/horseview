@@ -6,7 +6,7 @@ import os
 from sqlalchemy import MetaData
 
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///{}/jrdb.db".format(os.environ["DB"])
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ["DB"]
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 convention = {

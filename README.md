@@ -3,7 +3,9 @@ ORM for JRDB
 
 ## Setup
 set your environmental variable below.  
-`DB=YOUR_SQLITE_DIR`
+e.g.  
+`DB="sqlite:///tmp/jrdb.db"`  
+https://flask-sqlalchemy.palletsprojects.com/en/2.x/config/
 
 ## 使い方
 horseview.horsemodelから用途に応じたクラスをインポートする。  
