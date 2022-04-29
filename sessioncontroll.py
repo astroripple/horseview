@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_restless import APIManager
-from flask_migrate import Migrate, MigrateCommand
+from flask_migrate import Migrate
 import os
 from sqlalchemy import MetaData
 
