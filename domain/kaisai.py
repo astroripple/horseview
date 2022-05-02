@@ -19,7 +19,7 @@ class KaisaiData(baseobj):
     kaisai_kbn = colobj(intobj)
     day_of_week = colobj(strobj)
     course_name = colobj(strobj)
-    tenko = colobj(intobj, fkyobj("tenkomaster.tenko"))
+    tenko = colobj(intobj)
     turf_baba = colobj(intobj)
     turf_baba_abst = colobj(intobj)
     turf_baba_detail = colobj(intobj)

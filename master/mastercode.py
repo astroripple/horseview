@@ -51,7 +51,6 @@ class TenkoMaster(baseobj):
     __tablename__ = "tenkomaster"
     tenko = colobj(intobj, primary_key=True)
     tenko_name = colobj(strobj)
-    kaisai = relobj("KaisaiData", uselist=False, backref=bkrobj("tenkoma"))
 
 
 class RestreasoncodeMaster(baseobj):
