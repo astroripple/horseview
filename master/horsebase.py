@@ -12,7 +12,7 @@ from ..sessioncontroll import (
 
 class HorsebaseData(baseobj):
     __tablename__ = "horsebase"
-    blood = colobj(intobj, fkyobj("racehorse.blood"), primary_key=True)
+    blood = colobj(intobj, primary_key=True)
     horse = colobj(strobj)
     sex = colobj(intobj)
     hair = colobj(intobj)
