@@ -83,11 +83,11 @@ class RacehorseData(baseobj):
     minarai = colobj(intobj)
     trainer_name = colobj(strobj)
     trainer_shozoku = colobj(strobj)
-    zenso_seiseki_key_1 = colobj(strobj, fkyobj("seiseki.raceseisekikey"))
-    zenso_seiseki_key_2 = colobj(strobj, fkyobj("seiseki.raceseisekikey"))
-    zenso_seiseki_key_3 = colobj(strobj, fkyobj("seiseki.raceseisekikey"))
-    zenso_seiseki_key_4 = colobj(strobj, fkyobj("seiseki.raceseisekikey"))
-    zenso_seiseki_key_5 = colobj(strobj, fkyobj("seiseki.raceseisekikey"))
+    zenso_seiseki_key_1 = colobj(strobj)
+    zenso_seiseki_key_2 = colobj(strobj)
+    zenso_seiseki_key_3 = colobj(strobj)
+    zenso_seiseki_key_4 = colobj(strobj)
+    zenso_seiseki_key_5 = colobj(strobj)
 
     zenso1 = relobj(
         "SeisekiData",
