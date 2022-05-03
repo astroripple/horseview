@@ -88,38 +88,6 @@ class RacehorseData(baseobj):
     zenso_seiseki_key_3 = colobj(strobj)
     zenso_seiseki_key_4 = colobj(strobj)
     zenso_seiseki_key_5 = colobj(strobj)
-
-    zenso1 = relobj(
-        "SeisekiData",
-        uselist=False,
-        foreign_keys=[zenso_seiseki_key_1],
-        innerjoin=False,
-    )
-    zenso2 = relobj(
-        "SeisekiData",
-        uselist=False,
-        foreign_keys=[zenso_seiseki_key_2],
-        innerjoin=False,
-    )
-    zenso3 = relobj(
-        "SeisekiData",
-        uselist=False,
-        foreign_keys=[zenso_seiseki_key_3],
-        innerjoin=False,
-    )
-    zenso4 = relobj(
-        "SeisekiData",
-        uselist=False,
-        foreign_keys=[zenso_seiseki_key_4],
-        innerjoin=False,
-    )
-    zenso5 = relobj(
-        "SeisekiData",
-        uselist=False,
-        foreign_keys=[zenso_seiseki_key_5],
-        innerjoin=False,
-    )
-
     zenso_racekey_1 = colobj(strobj)
     zenso_racekey_2 = colobj(strobj)
     zenso_racekey_3 = colobj(strobj)
