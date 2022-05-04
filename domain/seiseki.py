@@ -12,7 +12,7 @@ from ..sessioncontroll import (
 
 class SeisekiData(baseobj):
     __tablename__ = "seiseki"
-    racehorsekey = colobj(strobj, primary_key=True)
+    racehorsekey = colobj(strobj, fkyobj("racehorse.racehorsekey"), primary_key=True)
     racekey = colobj(strobj, fkyobj("seisekirace.racekey"))
     bacode = colobj(intobj)
     year = colobj(intobj)
