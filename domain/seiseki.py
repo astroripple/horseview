@@ -3,6 +3,7 @@ from ..sessioncontroll import (
     strobj,
     baseobj,
     intobj,
+    floatobj,
     colobj,
     relobj,
     fkyobj,
@@ -46,7 +47,7 @@ class SeisekiData(baseobj):
     kinryo = colobj(intobj)
     jockey_name = colobj(strobj)
     trainer_name = colobj(strobj)
-    decided_odds = colobj(intobj)
+    decided_odds = colobj(floatobj)
     decided_pop_order = colobj(intobj)
     idm = colobj(intobj)
     natural_score = colobj(intobj)
@@ -66,19 +67,19 @@ class SeisekiData(baseobj):
     kehai_code = colobj(intobj)
     racepace = colobj(strobj)
     umapace = colobj(strobj)
-    ten_score = colobj(intobj)
-    up_score = colobj(intobj)
-    pace_score = colobj(intobj)
-    racep_score = colobj(intobj)
+    ten_score = colobj(floatobj)
+    up_score = colobj(floatobj)
+    pace_score = colobj(floatobj)
+    racep_score = colobj(floatobj)
     win_horse_name = colobj(strobj)
     time_sa = colobj(intobj)
     mae3f_time = colobj(intobj)
     agari3f_time = colobj(intobj)
     biko = colobj(strobj)
     yobi = colobj(strobj)
-    decided_place_odds = colobj(intobj)
-    juji_win_odds = colobj(intobj)
-    juji_place_odds = colobj(intobj)
+    decided_place_odds = colobj(floatobj)
+    juji_win_odds = colobj(floatobj)
+    juji_place_odds = colobj(floatobj)
     corner_order1 = colobj(intobj)
     corner_order2 = colobj(intobj)
     corner_order3 = colobj(intobj)
