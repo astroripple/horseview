@@ -23,6 +23,7 @@ migrate = Migrate(app, db)
 strobj = db.String(80)
 baseobj = db.Model
 intobj = db.Integer
+floatobj = db.Float
 jsonobj = db.JSON
 colobj = db.Column
 relobj = db.relationship

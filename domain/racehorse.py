@@ -3,6 +3,7 @@ from ..sessioncontroll import (
     strobj,
     baseobj,
     intobj,
+    floatobj,
     colobj,
     relobj,
     fkyobj,
@@ -12,7 +13,7 @@ from ..sessioncontroll import (
 
 class RacehorseData(baseobj):
     __tablename__ = "racehorse"
-    racehorsekey = colobj(strobj, fkyobj("seiseki.racehorsekey"), primary_key=True)
+    racehorsekey = colobj(strobj, primary_key=True)
     # 親に対して
     racekey = colobj(strobj, fkyobj("bangumi.racekey"))
     # 1:1
@@ -26,7 +27,7 @@ class RacehorseData(baseobj):
         "HorsebaseData", uselist=False, backref=bkrobj("racehorse"), innerjoin=True
     )
     result = relobj(
-        "SeisekiData", uselist=False, foreign_keys=[racehorsekey], innerjoin=False
+        "SeisekiData", uselist=False, backref=bkrobj("racehorse"), innerjoin=False
     )
     predict = relobj(
         "PredictData", uselist=False, backref=bkrobj("racehorse"), innerjoin=False
@@ -39,20 +40,20 @@ class RacehorseData(baseobj):
     num = colobj(intobj)
     blood = colobj(intobj, fkyobj("horsebase.blood"))
     horse = colobj(strobj)
-    idm = colobj(intobj)
-    jockey_score = colobj(intobj)
-    info_score = colobj(intobj)
+    idm = colobj(floatobj)
+    jockey_score = colobj(floatobj)
+    info_score = colobj(floatobj)
     yobi1 = colobj(strobj)
     yobi2 = colobj(strobj)
     yobi3 = colobj(strobj)
-    sogo_score = colobj(intobj)
+    sogo_score = colobj(floatobj)
     leg_type = colobj(intobj)
     distance_adjust = colobj(intobj)
     up_degree = colobj(intobj)
     routin = colobj(intobj)
-    cri_odds = colobj(intobj)
+    cri_odds = colobj(floatobj)
     cri_popular_order = colobj(intobj)
-    cri_fukusho_odds = colobj(intobj)
+    cri_fukusho_odds = colobj(floatobj)
     cri_fukusho_popluar_order = colobj(intobj)
     specific_info_1 = colobj(intobj)
     specific_info_2 = colobj(intobj)
@@ -64,13 +65,13 @@ class RacehorseData(baseobj):
     sogo_info_3 = colobj(intobj)
     sogo_info_4 = colobj(intobj)
     sogo_info_5 = colobj(intobj)
-    pop_score = colobj(intobj)
-    train_score = colobj(intobj)
-    trainer_score = colobj(intobj)
+    pop_score = colobj(floatobj)
+    train_score = colobj(floatobj)
+    trainer_score = colobj(floatobj)
     train_code = colobj(intobj)
     trainer_hyoka_code = colobj(intobj)
-    jockey_rate_rentai = colobj(intobj)
-    gekiso_score = colobj(intobj)
+    jockey_rate_rentai = colobj(floatobj)
+    gekiso_score = colobj(floatobj)
     hidume_code = colobj(intobj)
     hidume_shape = colobj(intobj)
     hidume_size = colobj(intobj)
@@ -110,10 +111,10 @@ class RacehorseData(baseobj):
     kakutoku_money = colobj(intobj)
     shukaku_money = colobj(intobj)
     joken = colobj(intobj)
-    ten_score = colobj(intobj)
-    pace_score = colobj(intobj)
-    up_score = colobj(intobj)
-    position_score = colobj(intobj)
+    ten_score = colobj(floatobj)
+    pace_score = colobj(floatobj)
+    up_score = colobj(floatobj)
+    position_score = colobj(floatobj)
     pace_predict = colobj(strobj)
     dochu_order = colobj(intobj)
     dochu_sa = colobj(intobj)
@@ -139,8 +140,8 @@ class RacehorseData(baseobj):
     pace_score_order = colobj(intobj)
     up_score_order = colobj(intobj)
     position_score_order = colobj(intobj)
-    expect_jokey_win_rate = colobj(intobj)
-    expect_jokey_rentai_rate = colobj(intobj)
+    expect_jokey_win_rate = colobj(floatobj)
+    expect_jokey_rentai_rate = colobj(floatobj)
     yuso = colobj(strobj)
     soho = colobj(intobj)
     taikei_data = colobj(strobj)
@@ -168,11 +169,11 @@ class RacehorseData(baseobj):
     umatokki1 = colobj(intobj)
     umatokki2 = colobj(intobj)
     umatokki3 = colobj(intobj)
-    horse_start_score = colobj(intobj)
-    horse_latestart_rate = colobj(intobj)
+    horse_start_score = colobj(floatobj)
+    horse_latestart_rate = colobj(floatobj)
     sanko_zenso = colobj(intobj)
     sanko_zenso_jockey_code = colobj(strobj)
-    mambaken_score = colobj(intobj)
+    mambaken_score = colobj(floatobj)
     mambaken_shirushi = colobj(intobj)
     kokyu_flg = colobj(intobj)
     gekiso_type = colobj(strobj)
