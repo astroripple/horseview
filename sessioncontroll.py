@@ -21,6 +21,7 @@ db = SQLAlchemy(app, metadata=metadata)
 migrate = Migrate(app, db)
 
 strobj = db.String(80)
+txtobj = db.Text
 baseobj = db.Model
 intobj = db.Integer
 floatobj = db.Float

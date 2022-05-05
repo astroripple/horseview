@@ -1,6 +1,7 @@
 from ..sessioncontroll import (
     baseobj,
     strobj,
+    txtobj,
     baseobj,
     intobj,
     colobj,
@@ -55,4 +56,4 @@ class SeisekiRaceData(baseobj):
     truckbias_straight_center = colobj(strobj)
     truckbias_straight_out = colobj(strobj)
     truckbias_straight_oosoto = colobj(strobj)
-    comment = colobj(strobj)
+    comment = colobj(txtobj)
