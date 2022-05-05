@@ -35,7 +35,7 @@ class RacehorseData(baseobj):
     bacode = colobj(intobj)
     year = colobj(intobj)
     kai = colobj(intobj)
-    day = colobj(intobj)
+    day = colobj(strobj)
     race = colobj(intobj)
     num = colobj(intobj)
     blood = colobj(intobj, fkyobj("horsebase.blood"))

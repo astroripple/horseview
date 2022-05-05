@@ -18,7 +18,7 @@ class SeisekiData(baseobj):
     bacode = colobj(intobj)
     year = colobj(intobj)
     kai = colobj(intobj)
-    day = colobj(intobj)
+    day = colobj(strobj)
     raceno = colobj(intobj)
     seisekirace = relobj("SeisekiRaceData", uselist=False, backref=bkrobj("seiseki"))
     num = colobj(intobj)
