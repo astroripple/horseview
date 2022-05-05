@@ -13,6 +13,7 @@ from ..sessioncontroll import (
 
 class RacehorseData(baseobj):
     __tablename__ = "racehorse"
+    __table_args__=({"mariadb_row_format": "DYNAMIC"})
     racehorsekey = colobj(strobj, primary_key=True)
     # 親に対して
     racekey = colobj(strobj, fkyobj("bangumi.racekey"))
