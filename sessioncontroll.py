@@ -32,4 +32,4 @@ fkyobj = db.ForeignKey
 bkrobj = db.backref
 sesobj = db.session
 
-manager = APIManager(app, flask_sqlalchemy_db=db)
+manager = APIManager(app=app, session=sesobj)
