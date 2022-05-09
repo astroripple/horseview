@@ -1,6 +1,5 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from flask_restless import APIManager
 from flask_migrate import Migrate
 import os
 from sqlalchemy import MetaData
@@ -31,5 +30,3 @@ relobj = db.relationship
 fkyobj = db.ForeignKey
 bkrobj = db.backref
 sesobj = db.session
-
-manager = APIManager(app=app, session=sesobj)
