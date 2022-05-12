@@ -11,5 +11,7 @@ https://flask-sqlalchemy.palletsprojects.com/en/2.x/config/
 horseview.horsemodelから用途に応じたクラスをインポートする。  
 
 ## ロード例
-`from  horseview.horsemodel import KaisaiData`  
-`kaisais = KaisaiData.query.filter_by(ymd='20181118').all()`  
+```
+from  horseview.horsemodel import KaisaiData  
+kaisais = KaisaiData.query.filter_by(ymd='20181118').all()  
+```
