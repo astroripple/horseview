@@ -5,7 +5,6 @@ from ..sessioncontroll import (
     intobj,
     colobj,
     relobj,
-    fkyobj,
     bkrobj,
 )
 
