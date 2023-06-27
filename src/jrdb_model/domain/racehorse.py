@@ -33,6 +33,9 @@ class RacehorseData(baseobj):
     predict = relobj(
         "PredictData", uselist=False, backref=bkrobj("racehorse"), innerjoin=False
     )
+    calculated_score = relobj(
+        "CalculatedScoreData", uselist=False, backref=bkrobj("racehorse"), innerjoin=False
+    )
     bacode = colobj(intobj)
     year = colobj(intobj)
     kai = colobj(intobj)
