@@ -9,6 +9,9 @@ name = "jrdb-model"
 version = "0.2.0"
 description = "ORM for JRDB"
 readme = "README.md"
+dependencies = [
+    "flask-migrate>=4.1.0",
+]
 
 [project.urls]
 "Bug Tracker" = "https://github.com/astroripple/horseview/issues"
