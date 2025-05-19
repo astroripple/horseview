@@ -1,0 +1,25 @@
+{
+  "python.defaultInterpreterPath": ".venv/bin/python",
+  "ruff.path": ["${workspaceFolder}/.venv/bin/ruff"],
+  "mypy-type-checker.path": ["${workspaceFolder}/.venv/bin/mypy"],
+  "mypy-type-checker.args": ["--config=${workspaceFolder}/pyproject.toml"],
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "explicit",
+      "source.organizeImports": "explicit"
+    }
+  },
+  "[json][jsonc]": {
+    "editor": {
+      "defaultFormatter": "esbenp.prettier-vscode",
+      "formatOnSave": true,
+      "codeActionsOnSave": {
+        "source": {
+          "fixAll": "explicit"
+        }
+      }
+    }
+  }
+}

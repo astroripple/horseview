@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    "charliermarsh.ruff",
+    "esbenp.prettier-vscode",
+    "ms-python.python",
+    "ms-python.mypy-type-checker",
+    "njpwerner.autodocstring",
+    "KevinRose.vsc-python-indent",
+    "charliermarsh.ruff",
+    "tamasfe.even-better-toml"
+  ]
+}
