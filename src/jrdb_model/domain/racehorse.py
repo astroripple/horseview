@@ -1,19 +1,18 @@
 from ..sessioncontroll import (
     baseobj,
-    strobj,
-    baseobj,
-    intobj,
-    floatobj,
-    colobj,
-    relobj,
-    fkyobj,
     bkrobj,
+    colobj,
+    fkyobj,
+    floatobj,
+    intobj,
+    relobj,
+    strobj,
 )
 
 
 class RacehorseData(baseobj):
     __tablename__ = "racehorse"
-    __table_args__=({"mariadb_row_format": "DYNAMIC"})
+    __table_args__ = {"mariadb_row_format": "DYNAMIC"}
     racehorsekey = colobj(strobj, primary_key=True)
     # 親に対して
     racekey = colobj(strobj, fkyobj("bangumi.racekey"))
@@ -34,7 +33,10 @@ class RacehorseData(baseobj):
         "PredictData", uselist=False, backref=bkrobj("racehorse"), innerjoin=False
     )
     calculated_score = relobj(
-        "CalculatedScoreData", uselist=False, backref=bkrobj("racehorse"), innerjoin=False
+        "CalculatedScoreData",
+        uselist=False,
+        backref=bkrobj("racehorse"),
+        innerjoin=False,
     )
     bacode = colobj(intobj)
     year = colobj(intobj)

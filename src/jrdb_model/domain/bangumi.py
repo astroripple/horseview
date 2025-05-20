@@ -1,12 +1,11 @@
 from ..sessioncontroll import (
     baseobj,
-    strobj,
-    baseobj,
-    intobj,
-    colobj,
-    relobj,
-    fkyobj,
     bkrobj,
+    colobj,
+    fkyobj,
+    intobj,
+    relobj,
+    strobj,
 )
 
 

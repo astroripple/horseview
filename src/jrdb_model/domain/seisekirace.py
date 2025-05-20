@@ -1,10 +1,9 @@
 from ..sessioncontroll import (
     baseobj,
+    colobj,
+    intobj,
     strobj,
     txtobj,
-    baseobj,
-    intobj,
-    colobj,
 )
 
 
