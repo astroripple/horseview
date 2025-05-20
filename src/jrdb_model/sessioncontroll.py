@@ -1,3 +1,5 @@
+"""DBと接続するためのモジュール."""
+
 import os
 
 from flask import Flask
