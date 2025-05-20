@@ -20,3 +20,8 @@ Homepage = "https://github.com/astroripple/horseview"
 [build-system]
 requires = ["setuptools>=42"]
 build-backend = "setuptools.build_meta"
+
+[tool.uv]
+dev-dependencies = [
+    "ruff>=0.11.10",
+]
