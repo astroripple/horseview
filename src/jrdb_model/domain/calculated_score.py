@@ -1,4 +1,4 @@
-from ..sessioncontroll import baseobj, strobj, baseobj, floatobj, colobj, fkyobj
+from ..sessioncontroll import baseobj, colobj, fkyobj, floatobj, strobj
 
 
 class CalculatedScoreData(baseobj):
