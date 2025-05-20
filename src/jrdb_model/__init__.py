@@ -15,7 +15,18 @@ from .domain.wakuren_odds import WakurenOddsData
 from .domain.wide_odds import WideOddsData
 from .master.horsebase import HorsebaseData
 from .master.jockey import JockeyData
-from .master.mastercode import *
+from .master.mastercode import (
+    BacodeMaster,
+    DistanceadjustMaster,
+    IjokbnMaster,
+    JokenGroupMaster,
+    JokenMaster,
+    JuryoMaster,
+    LegtypeMaster,
+    RestreasoncodeMaster,
+    ShubetsuMaster,
+    TenkoMaster,
+)
 from .master.trainer import TrainerData
 
 # 更新処理用のセッションオブジェクト
@@ -43,4 +54,14 @@ __all__ = [
     "sesobj",
     "app",
     "db",
+    "BacodeMaster",
+    "DistanceadjustMaster",
+    "IjokbnMaster",
+    "JokenGroupMaster",
+    "JokenMaster",
+    "JuryoMaster",
+    "LegtypeMaster",
+    "RestreasoncodeMaster",
+    "ShubetsuMaster",
+    "TenkoMaster",
 ]
