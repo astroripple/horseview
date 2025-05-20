@@ -1,4 +1,5 @@
-# テーブル一覧をインポートする
+"""公開パッケージ一覧."""
+
 from .domain.bangumi import BangumiData
 from .domain.calculated_score import CalculatedScoreData
 from .domain.kaisai import KaisaiData
