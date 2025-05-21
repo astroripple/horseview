@@ -4,6 +4,8 @@ from typing import List
 
 from sqlalchemy.orm import Mapped, backref, mapped_column, relationship
 
+from jrdb_model import BangumiData
+
 from ..sessioncontroll import db
 
 

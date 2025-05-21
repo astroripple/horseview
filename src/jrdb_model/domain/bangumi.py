@@ -1,12 +1,27 @@
+"""レースデータ."""
+
 from typing import List
 
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import Mapped, backref, mapped_column, relationship
 
 from ..sessioncontroll import db
+from .predict_race import PredictRaceData
+from .racehorse import RacehorseData
+from .returninfo import ReturninfoData
+from .umaren_odds import UmarenOddsData
+from .wakuren_odds import WakurenOddsData
+from .wide_odds import WideOddsData
 
 
 class BangumiData(db.Model):
+    """レースデータ.
+
+    Args:
+        db (_type_): _description_
+
+    """
+
     __tablename__ = "bangumi"
     racekey: Mapped[str] = mapped_column(primary_key=True)
     # 親に対して
@@ -17,19 +32,19 @@ class BangumiData(db.Model):
     )
 
     # 1:1
-    returninfo: Mapped[List["ReturninfoData"]] = relationship(
+    returninfo: Mapped["ReturninfoData"] = relationship(
         "ReturninfoData", uselist=False, backref=backref("bangumi")
     )
-    umaren_odds: Mapped[List["UmarenOddsData"]] = relationship(
+    umaren_odds: Mapped["UmarenOddsData"] = relationship(
         "UmarenOddsData", uselist=False, backref=backref("bangumi")
     )
-    wide_odds: Mapped[List["WideOddsData"]] = relationship(
+    wide_odds: Mapped["WideOddsData"] = relationship(
         "WideOddsData", uselist=False, backref=backref("bangumi")
     )
-    wakuren_odds: Mapped[List["WakurenOddsData"]] = relationship(
+    wakuren_odds: Mapped["WakurenOddsData"] = relationship(
         "WakurenOddsData", uselist=False, backref=backref("bangumi")
     )
-    predict_race: Mapped[List["PredictRaceData"]] = relationship(
+    predict_race: Mapped["PredictRaceData"] = relationship(
         "PredictRaceData", uselist=False, backref=backref("bangumi")
     )
     ymd: Mapped[str] = mapped_column()

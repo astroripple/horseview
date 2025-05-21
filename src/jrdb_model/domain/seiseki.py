@@ -4,6 +4,7 @@ from sqlalchemy import ForeignKey
 from sqlalchemy.orm import Mapped, backref, mapped_column, relationship
 
 from ..sessioncontroll import db
+from .seisekirace import SeisekiRaceData
 
 
 class SeisekiData(db.Model):
@@ -24,7 +25,7 @@ class SeisekiData(db.Model):
     kai: Mapped[int] = mapped_column()
     day: Mapped[str] = mapped_column()
     raceno: Mapped[int] = mapped_column()
-    seisekirace = relationship(
+    seisekirace: Mapped["SeisekiRaceData"] = relationship(
         "SeisekiRaceData", uselist=False, backref=backref("seiseki")
     )
     num: Mapped[int] = mapped_column()
