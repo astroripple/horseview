@@ -1,46 +1,49 @@
-from ..sessioncontroll import (
-    baseobj,
-    bkrobj,
-    colobj,
-    intobj,
-    relobj,
-    strobj,
-)
+"""開催データ定義."""
+
+from typing import List
+
+from sqlalchemy.orm import Mapped, backref, mapped_column, relationship
+
+from ..sessioncontroll import db
 
 
-class KaisaiData(baseobj):
+class KaisaiData(db.Model):
+    """開催データ."""
+
     __tablename__ = "kaisai"
-    kaisaikey = colobj(strobj, primary_key=True)
+    kaisaikey: Mapped[int] = mapped_column(primary_key=True)
     # 子に対して
-    races = relobj("BangumiData", backref=bkrobj("kaisai"), innerjoin=True)
-    ymd = colobj(intobj)
-    kaisai_kbn = colobj(intobj)
-    day_of_week = colobj(strobj)
-    course_name = colobj(strobj)
-    tenko = colobj(intobj)
-    turf_baba = colobj(intobj)
-    turf_baba_abst = colobj(intobj)
-    turf_baba_detail = colobj(intobj)
-    turf_baba_in = colobj(intobj)
-    turf_baba_center = colobj(intobj)
-    turf_baba_out = colobj(intobj)
-    turf_baba_sa = colobj(intobj)
-    turf_baba_straight_saiuchi = colobj(intobj)
-    turf_baba_straight_in = colobj(intobj)
-    turf_baba_straight_center = colobj(intobj)
-    turf_baba_straight_out = colobj(intobj)
-    turf_baba_straight_oosoto = colobj(intobj)
-    dart_baba = colobj(intobj)
-    dart_baba_abst = colobj(intobj)
-    dart_baba_detail = colobj(intobj)
-    dart_baba_in = colobj(intobj)
-    dart_baba_center = colobj(intobj)
-    dart_baba_out = colobj(intobj)
-    dart_baba_sa = colobj(intobj)
-    data_kbn = colobj(intobj)
-    renzoku_day = colobj(intobj)
-    turf_kind = colobj(intobj)
-    turf_length = colobj(intobj)
-    tennatsu = colobj(intobj)
-    stopfreeze = colobj(intobj)
-    precipitation = colobj(intobj)
+    races: Mapped[List["BangumiData"]] = relationship(
+        "BangumiData", backref=backref("kaisai"), innerjoin=True
+    )
+    ymd: Mapped[int] = mapped_column()
+    kaisai_kbn: Mapped[int] = mapped_column()
+    day_of_week: Mapped[str] = mapped_column()
+    course_name: Mapped[str] = mapped_column()
+    tenko: Mapped[int] = mapped_column()
+    turf_baba: Mapped[int] = mapped_column()
+    turf_baba_abst: Mapped[int] = mapped_column()
+    turf_baba_detail: Mapped[int] = mapped_column()
+    turf_baba_in: Mapped[int] = mapped_column()
+    turf_baba_center: Mapped[int] = mapped_column()
+    turf_baba_out: Mapped[int] = mapped_column()
+    turf_baba_sa: Mapped[int] = mapped_column()
+    turf_baba_straight_saiuchi: Mapped[int] = mapped_column()
+    turf_baba_straight_in: Mapped[int] = mapped_column()
+    turf_baba_straight_center: Mapped[int] = mapped_column()
+    turf_baba_straight_out: Mapped[int] = mapped_column()
+    turf_baba_straight_oosoto: Mapped[int] = mapped_column()
+    dart_baba: Mapped[int] = mapped_column()
+    dart_baba_abst: Mapped[int] = mapped_column()
+    dart_baba_detail: Mapped[int] = mapped_column()
+    dart_baba_in: Mapped[int] = mapped_column()
+    dart_baba_center: Mapped[int] = mapped_column()
+    dart_baba_out: Mapped[int] = mapped_column()
+    dart_baba_sa: Mapped[int] = mapped_column()
+    data_kbn: Mapped[int] = mapped_column()
+    renzoku_day: Mapped[int] = mapped_column()
+    turf_kind: Mapped[int] = mapped_column()
+    turf_length: Mapped[int] = mapped_column()
+    tennatsu: Mapped[int] = mapped_column()
+    stopfreeze: Mapped[int] = mapped_column()
+    precipitation: Mapped[int] = mapped_column()
