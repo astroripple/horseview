@@ -1,55 +1,61 @@
-from ..sessioncontroll import (
-    baseobj,
-    colobj,
-    intobj,
-    strobj,
-)
+"""騎手データ."""
+
+from sqlalchemy.orm import Mapped, mapped_column
+
+from ..sessioncontroll import db
 
 
-class JockeyData(baseobj):
+class JockeyData(db.Model):
+    """騎手データ.
+
+    Args:
+        db (_type_): _description_
+
+    """
+
     __tablename__ = "jockey"
-    jockey_code = colobj(intobj, primary_key=True)
-    delete_flg = colobj(intobj)
-    delete_ymd = colobj(intobj)
-    jockey_name = colobj(strobj)
-    jockey_name_kana = colobj(strobj)
-    jockey_name_short = colobj(strobj)
-    shozoku_code = colobj(intobj)
-    shozoku_region = colobj(strobj)
-    birthday = colobj(intobj)
-    get_licence_year = colobj(intobj)
-    minarai_kbn = colobj(intobj)
-    trainer_code = colobj(intobj)
-    jockey_comment = colobj(strobj)
-    comment_ymd = colobj(intobj)
-    this_leading = colobj(intobj)
-    this_flat_seiseki_1st = colobj(intobj)
-    this_flat_seiseki_2nd = colobj(intobj)
-    this_flat_seiseki_3rd = colobj(intobj)
-    this_flat_seiseki_out = colobj(intobj)
-    this_steeple_seiseki_1st = colobj(intobj)
-    this_steeple_seiseki_2nd = colobj(intobj)
-    this_steeple_seiseki_3rd = colobj(intobj)
-    this_steeple_seiseki_out = colobj(intobj)
-    this_tokubetsu_win = colobj(intobj)
-    this_jusho_win = colobj(intobj)
-    last_leading = colobj(intobj)
-    last_flat_seiseki_1st = colobj(intobj)
-    last_flat_seiseki_2nd = colobj(intobj)
-    last_flat_seiseki_3rd = colobj(intobj)
-    last_flat_seiseki_out = colobj(intobj)
-    last_steeple_seiseki_1st = colobj(intobj)
-    last_steeple_seiseki_2nd = colobj(intobj)
-    last_steeple_seiseki_3rd = colobj(intobj)
-    last_steeple_seiseki_out = colobj(intobj)
-    last_tokubetsu_win = colobj(intobj)
-    last_jusho_win = colobj(intobj)
-    total_flat_seiseki_1st = colobj(intobj)
-    total_flat_seiseki_2nd = colobj(intobj)
-    total_flat_seiseki_3rd = colobj(intobj)
-    total_flat_seiseki_out = colobj(intobj)
-    total_steeple_seiseki_1st = colobj(intobj)
-    total_steeple_seiseki_2nd = colobj(intobj)
-    total_steeple_seiseki_3rd = colobj(intobj)
-    total_steeple_seiseki_out = colobj(intobj)
-    data_ymd = colobj(intobj)
+    jockey_code: Mapped[int] = mapped_column(primary_key=True)
+    delete_flg: Mapped[int] = mapped_column()
+    delete_ymd: Mapped[int] = mapped_column()
+    jockey_name: Mapped[str] = mapped_column()
+    jockey_name_kana: Mapped[str] = mapped_column()
+    jockey_name_short: Mapped[str] = mapped_column()
+    shozoku_code: Mapped[int] = mapped_column()
+    shozoku_region: Mapped[str] = mapped_column()
+    birthday: Mapped[int] = mapped_column()
+    get_licence_year: Mapped[int] = mapped_column()
+    minarai_kbn: Mapped[int] = mapped_column()
+    trainer_code: Mapped[int] = mapped_column()
+    jockey_comment: Mapped[str] = mapped_column()
+    comment_ymd: Mapped[int] = mapped_column()
+    this_leading: Mapped[int] = mapped_column()
+    this_flat_seiseki_1st: Mapped[int] = mapped_column()
+    this_flat_seiseki_2nd: Mapped[int] = mapped_column()
+    this_flat_seiseki_3rd: Mapped[int] = mapped_column()
+    this_flat_seiseki_out: Mapped[int] = mapped_column()
+    this_steeple_seiseki_1st: Mapped[int] = mapped_column()
+    this_steeple_seiseki_2nd: Mapped[int] = mapped_column()
+    this_steeple_seiseki_3rd: Mapped[int] = mapped_column()
+    this_steeple_seiseki_out: Mapped[int] = mapped_column()
+    this_tokubetsu_win: Mapped[int] = mapped_column()
+    this_jusho_win: Mapped[int] = mapped_column()
+    last_leading: Mapped[int] = mapped_column()
+    last_flat_seiseki_1st: Mapped[int] = mapped_column()
+    last_flat_seiseki_2nd: Mapped[int] = mapped_column()
+    last_flat_seiseki_3rd: Mapped[int] = mapped_column()
+    last_flat_seiseki_out: Mapped[int] = mapped_column()
+    last_steeple_seiseki_1st: Mapped[int] = mapped_column()
+    last_steeple_seiseki_2nd: Mapped[int] = mapped_column()
+    last_steeple_seiseki_3rd: Mapped[int] = mapped_column()
+    last_steeple_seiseki_out: Mapped[int] = mapped_column()
+    last_tokubetsu_win: Mapped[int] = mapped_column()
+    last_jusho_win: Mapped[int] = mapped_column()
+    total_flat_seiseki_1st: Mapped[int] = mapped_column()
+    total_flat_seiseki_2nd: Mapped[int] = mapped_column()
+    total_flat_seiseki_3rd: Mapped[int] = mapped_column()
+    total_flat_seiseki_out: Mapped[int] = mapped_column()
+    total_steeple_seiseki_1st: Mapped[int] = mapped_column()
+    total_steeple_seiseki_2nd: Mapped[int] = mapped_column()
+    total_steeple_seiseki_3rd: Mapped[int] = mapped_column()
+    total_steeple_seiseki_out: Mapped[int] = mapped_column()
+    data_ymd: Mapped[int] = mapped_column()
