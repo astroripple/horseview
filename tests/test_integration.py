@@ -1,4 +1,8 @@
+"""DBと接続する統合テスト."""
+
+
 def test_kaisai():
+    """開催データのジョインロードのテスト."""
     # import os
     from typing import List
 
