@@ -5,6 +5,15 @@ from typing import List
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import Mapped, backref, mapped_column, relationship
 
+from jrdb_model import (
+    CalculatedScoreData,
+    HorsebaseData,
+    PredictData,
+    SeisekiData,
+    TrainAnalysisData,
+    TrainOikiriData,
+)
+
 from ..sessioncontroll import db
 
 
@@ -22,22 +31,22 @@ class RacehorseData(db.Model):
     # 親に対して
     racekey: Mapped[str] = mapped_column(ForeignKey("bangumi.racekey"))
     # 1:1
-    trainanalysis: Mapped[List["TrainAnalysisData"]] = relationship(
+    trainanalysis: Mapped["TrainAnalysisData"] = relationship(
         "TrainAnalysisData", uselist=False, backref=backref("racehorse"), innerjoin=True
     )
-    trainoikiri: Mapped[List["TrainOikiriData"]] = relationship(
+    trainoikiri: Mapped["TrainOikiriData"] = relationship(
         "TrainOikiriData", uselist=False, backref=backref("racehorse"), innerjoin=True
     )
-    horse_base: Mapped[List["HorsebaseData"]] = relationship(
+    horse_base: Mapped["HorsebaseData"] = relationship(
         "HorsebaseData", uselist=False, backref=backref("racehorse"), innerjoin=True
     )
-    result: Mapped[List["SeisekiData"]] = relationship(
+    result: Mapped["SeisekiData"] = relationship(
         "SeisekiData", uselist=False, backref=backref("racehorse"), innerjoin=False
     )
-    predict: Mapped[List["PredictData"]] = relationship(
+    predict: Mapped["PredictData"] = relationship(
         "PredictData", uselist=False, backref=backref("racehorse"), innerjoin=False
     )
-    calculated_score: Mapped[List["CalculatedScoreData"]] = relationship(
+    calculated_score: Mapped["CalculatedScoreData"] = relationship(
         "CalculatedScoreData",
         uselist=False,
         backref=backref("racehorse"),
