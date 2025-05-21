@@ -1,19 +1,26 @@
-from ..sessioncontroll import (
-    baseobj,
-    colobj,
-    fkyobj,
-    intobj,
-    jsonobj,
-    strobj,
-)
+"""ワイドオッズデータ."""
+
+from sqlalchemy import JSON, ForeignKey
+from sqlalchemy.orm import Mapped, mapped_column
+
+from ..sessioncontroll import db
 
 
-class WideOddsData(baseobj):
+class WideOddsData(db.Model):
+    """ワイドオッズデータ.
+
+    Args:
+        db (_type_): _description_
+
+    """
+
     __tablename__ = "wide_odds"
-    racekey = colobj(strobj, fkyobj("bangumi.racekey"), primary_key=True)
-    data_kbn = colobj(intobj)
-    registered_horses = colobj(intobj)
-    ran_horses = colobj(intobj)
-    sold_flg = colobj(intobj)
-    all_odds = colobj(jsonobj)
-    sum_of_all_bought_count = colobj(intobj)
+    racekey: Mapped[str] = mapped_column(
+        ForeignKey("bangumi.racekey"), primary_key=True
+    )
+    data_kbn: Mapped[int] = mapped_column()
+    registered_horses: Mapped[int] = mapped_column()
+    ran_horses: Mapped[int] = mapped_column()
+    sold_flg: Mapped[int] = mapped_column()
+    all_odds: Mapped[str] = mapped_column(type_=JSON)
+    sum_of_all_bought_count: Mapped[int] = mapped_column()
