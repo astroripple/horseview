@@ -3,9 +3,8 @@
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import Mapped, backref, mapped_column, relationship
 
-from jrdb_model import SeisekiRaceData
-
 from ..sessioncontroll import db
+from .seisekirace import SeisekiRaceData
 
 
 class SeisekiData(db.Model):

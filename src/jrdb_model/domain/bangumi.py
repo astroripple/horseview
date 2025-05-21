@@ -5,16 +5,13 @@ from typing import List
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import Mapped, backref, mapped_column, relationship
 
-from jrdb_model import (
-    PredictRaceData,
-    RacehorseData,
-    ReturninfoData,
-    UmarenOddsData,
-    WakurenOddsData,
-    WideOddsData,
-)
-
 from ..sessioncontroll import db
+from .predict_race import PredictRaceData
+from .racehorse import RacehorseData
+from .returninfo import ReturninfoData
+from .umaren_odds import UmarenOddsData
+from .wakuren_odds import WakurenOddsData
+from .wide_odds import WideOddsData
 
 
 class BangumiData(db.Model):

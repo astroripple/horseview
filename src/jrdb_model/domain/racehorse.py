@@ -5,16 +5,13 @@ from typing import List
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import Mapped, backref, mapped_column, relationship
 
-from jrdb_model import (
-    CalculatedScoreData,
-    HorsebaseData,
-    PredictData,
-    SeisekiData,
-    TrainAnalysisData,
-    TrainOikiriData,
-)
-
+from ..master.horsebase import HorsebaseData
 from ..sessioncontroll import db
+from .calculated_score import CalculatedScoreData
+from .predict import PredictData
+from .seiseki import SeisekiData
+from .trainanalysis import TrainAnalysisData
+from .trainoikiri import TrainOikiriData
 
 
 class RacehorseData(db.Model):
