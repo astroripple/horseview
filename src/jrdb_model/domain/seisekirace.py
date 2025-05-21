@@ -1,58 +1,64 @@
-from ..sessioncontroll import (
-    baseobj,
-    colobj,
-    intobj,
-    strobj,
-    txtobj,
-)
+"""成績レースデータ."""
+
+from sqlalchemy import Text
+from sqlalchemy.orm import Mapped, mapped_column
+
+from ..sessioncontroll import db
 
 
-class SeisekiRaceData(baseobj):
+class SeisekiRaceData(db.Model):
+    """成績レースデータ.
+
+    Args:
+        db (_type_): _description_
+
+    """
+
     __tablename__ = "seisekirace"
-    racekey = colobj(strobj, primary_key=True)
-    furlongtime1 = colobj(intobj)
-    furlongtime2 = colobj(intobj)
-    furlongtime3 = colobj(intobj)
-    furlongtime4 = colobj(intobj)
-    furlongtime5 = colobj(intobj)
-    furlongtime6 = colobj(intobj)
-    furlongtime7 = colobj(intobj)
-    furlongtime8 = colobj(intobj)
-    furlongtime9 = colobj(intobj)
-    furlongtime10 = colobj(intobj)
-    furlongtime11 = colobj(intobj)
-    furlongtime12 = colobj(intobj)
-    furlongtime13 = colobj(intobj)
-    furlongtime14 = colobj(intobj)
-    furlongtime15 = colobj(intobj)
-    furlongtime16 = colobj(intobj)
-    furlongtime17 = colobj(intobj)
-    furlongtime18 = colobj(intobj)
-    corner1 = colobj(strobj)
-    corner2 = colobj(strobj)
-    corner3 = colobj(strobj)
-    corner4 = colobj(strobj)
-    paceupposition = colobj(intobj)
-    truckbias1_in = colobj(strobj)
-    truckbias1_center = colobj(strobj)
-    truckbias1_out = colobj(strobj)
-    truckbias2_in = colobj(strobj)
-    truckbias2_center = colobj(strobj)
-    truckbias2_out = colobj(strobj)
-    truckbias_muko_in = colobj(strobj)
-    truckbias_muko_center = colobj(strobj)
-    truckbias_muko_out = colobj(strobj)
-    truckbias3_in = colobj(strobj)
-    truckbias3_center = colobj(strobj)
-    truckbias3_out = colobj(strobj)
-    truckbias4_saiuchi = colobj(strobj)
-    truckbias4_in = colobj(strobj)
-    truckbias4_center = colobj(strobj)
-    truckbias4_out = colobj(strobj)
-    truckbias4_oosoto = colobj(strobj)
-    truckbias_straight_saiuchi = colobj(strobj)
-    truckbias_straight_in = colobj(strobj)
-    truckbias_straight_center = colobj(strobj)
-    truckbias_straight_out = colobj(strobj)
-    truckbias_straight_oosoto = colobj(strobj)
-    comment = colobj(txtobj)
+    racekey: Mapped[str] = mapped_column(primary_key=True)
+    furlongtime1: Mapped[int] = mapped_column()
+    furlongtime2: Mapped[int] = mapped_column()
+    furlongtime3: Mapped[int] = mapped_column()
+    furlongtime4: Mapped[int] = mapped_column()
+    furlongtime5: Mapped[int] = mapped_column()
+    furlongtime6: Mapped[int] = mapped_column()
+    furlongtime7: Mapped[int] = mapped_column()
+    furlongtime8: Mapped[int] = mapped_column()
+    furlongtime9: Mapped[int] = mapped_column()
+    furlongtime10: Mapped[int] = mapped_column()
+    furlongtime11: Mapped[int] = mapped_column()
+    furlongtime12: Mapped[int] = mapped_column()
+    furlongtime13: Mapped[int] = mapped_column()
+    furlongtime14: Mapped[int] = mapped_column()
+    furlongtime15: Mapped[int] = mapped_column()
+    furlongtime16: Mapped[int] = mapped_column()
+    furlongtime17: Mapped[int] = mapped_column()
+    furlongtime18: Mapped[int] = mapped_column()
+    corner1: Mapped[str] = mapped_column()
+    corner2: Mapped[str] = mapped_column()
+    corner3: Mapped[str] = mapped_column()
+    corner4: Mapped[str] = mapped_column()
+    paceupposition: Mapped[int] = mapped_column()
+    truckbias1_in: Mapped[str] = mapped_column()
+    truckbias1_center: Mapped[str] = mapped_column()
+    truckbias1_out: Mapped[str] = mapped_column()
+    truckbias2_in: Mapped[str] = mapped_column()
+    truckbias2_center: Mapped[str] = mapped_column()
+    truckbias2_out: Mapped[str] = mapped_column()
+    truckbias_muko_in: Mapped[str] = mapped_column()
+    truckbias_muko_center: Mapped[str] = mapped_column()
+    truckbias_muko_out: Mapped[str] = mapped_column()
+    truckbias3_in: Mapped[str] = mapped_column()
+    truckbias3_center: Mapped[str] = mapped_column()
+    truckbias3_out: Mapped[str] = mapped_column()
+    truckbias4_saiuchi: Mapped[str] = mapped_column()
+    truckbias4_in: Mapped[str] = mapped_column()
+    truckbias4_center: Mapped[str] = mapped_column()
+    truckbias4_out: Mapped[str] = mapped_column()
+    truckbias4_oosoto: Mapped[str] = mapped_column()
+    truckbias_straight_saiuchi: Mapped[str] = mapped_column()
+    truckbias_straight_in: Mapped[str] = mapped_column()
+    truckbias_straight_center: Mapped[str] = mapped_column()
+    truckbias_straight_out: Mapped[str] = mapped_column()
+    truckbias_straight_oosoto: Mapped[str] = mapped_column()
+    comment: Mapped[str] = mapped_column(Text)
