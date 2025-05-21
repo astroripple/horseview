@@ -32,7 +32,7 @@ from .master.trainer import TrainerData
 
 # 更新処理用のセッションオブジェクト
 # flask用オブジェクト
-from .sessioncontroll import app, db, sesobj
+from .sessioncontroll import create_app, db
 
 __all__ = [
     "BacodeMaster",
