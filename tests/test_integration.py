@@ -12,12 +12,14 @@ def test_kaisai():
 
     # os.environ["DB"] = mariadb+pymysql://user:pass@host/database
     app = create_app()
+    kaisais: List[KaisaiData]
     with app.app_context():
-        kaisais: List[KaisaiData] = (
+        kaisais = (
             KaisaiData.query.filter(
                 KaisaiData.ymd >= 20220101, KaisaiData.ymd <= 20220130
             )
             .options(joinedload("*"))
             .all()
         )
-        assert len(kaisais) == 26
+    assert len(kaisais) == 26
+    assert kaisais[0].races[0].racehorses[0].result.order_of_arrival == 4
