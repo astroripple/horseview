@@ -7,10 +7,6 @@ from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import MetaData
 
-app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = os.environ["DB"]
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-
 convention = {
     "ix": "ix_%(column_0_label)s",
     "uq": "uq_%(table_name)s_%(column_0_name)s",
@@ -19,17 +15,15 @@ convention = {
     "pk": "pk_%(table_name)s",
 }
 metadata = MetaData(naming_convention=convention)
-db = SQLAlchemy(app, metadata=metadata)
-migrate = Migrate(app, db)
+db = SQLAlchemy(metadata=metadata)
+migrate = Migrate()
 
-strobj = db.String(80)
-txtobj = db.Text
-baseobj = db.Model
-intobj = db.Integer
-floatobj = db.Float
-jsonobj = db.JSON
-colobj = db.Column
-relobj = db.relationship
-fkyobj = db.ForeignKey
-bkrobj = db.backref
-sesobj = db.session
+
+def create_app() -> Flask:
+    """DBとの接続を初期化する."""
+    app = Flask(__name__)
+    app.config["SQLALCHEMY_DATABASE_URI"] = os.environ["DB"]
+    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+    db.init_app(app)
+    migrate.init_app(app, db)
+    return app
