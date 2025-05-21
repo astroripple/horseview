@@ -6,10 +6,10 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 name = "jrdb-model"
-version = "0.2.1"
+version = "0.2.2"
 description = "ORM for JRDB"
 readme = "README.md"
-dependencies = ["flask-migrate>=4.1.0"]
+dependencies = ["flask-migrate>=4.1.0", "pymysql>=1.1.1"]
 
 [project.urls]
 "Bug Tracker" = "https://github.com/astroripple/horseview/issues"
@@ -20,7 +20,7 @@ requires = ["setuptools>=42"]
 build-backend = "setuptools.build_meta"
 
 [tool.uv]
-dev-dependencies = ["ruff>=0.11.10"]
+dev-dependencies = ["mypy>=1.15.0", "pytest>=8.3.5", "ruff>=0.11.10"]
 [tool.ruff.lint]
 select = ["RUF", "I", "SIM", "FURB", "PIE", "PERF", "C4", "B", "PL", "D", "S"]
 
@@ -29,3 +29,6 @@ select = ["RUF", "I", "SIM", "FURB", "PIE", "PERF", "C4", "B", "PL", "D", "S"]
 
 [tool.ruff.format]
 docstring-code-format = true
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

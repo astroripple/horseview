@@ -1,64 +1,73 @@
-from ..sessioncontroll import (
-    baseobj,
-    bkrobj,
-    colobj,
-    fkyobj,
-    intobj,
-    relobj,
-    strobj,
-)
+from typing import List
+
+from sqlalchemy import ForeignKey
+from sqlalchemy.orm import Mapped, backref, mapped_column, relationship
+
+from ..sessioncontroll import db
 
 
-class BangumiData(baseobj):
+class BangumiData(db.Model):
     __tablename__ = "bangumi"
-    racekey = colobj(strobj, primary_key=True)
+    racekey: Mapped[str] = mapped_column(primary_key=True)
     # 親に対して
-    kaisaikey = colobj(strobj, fkyobj("kaisai.kaisaikey"))
+    kaisaikey: Mapped[str] = mapped_column(ForeignKey("kaisai.kaisaikey"))
     # 子に対して
-    racehorses = relobj("RacehorseData", backref=bkrobj("bangumi"), innerjoin=True)
+    racehorses: Mapped[List["RacehorseData"]] = relationship(
+        "RacehorseData", backref=backref("bangumi"), innerjoin=True
+    )
 
     # 1:1
-    returninfo = relobj("ReturninfoData", uselist=False, backref=bkrobj("bangumi"))
-    umaren_odds = relobj("UmarenOddsData", uselist=False, backref=bkrobj("bangumi"))
-    wide_odds = relobj("WideOddsData", uselist=False, backref=bkrobj("bangumi"))
-    wakuren_odds = relobj("WakurenOddsData", uselist=False, backref=bkrobj("bangumi"))
-    predict_race = relobj("PredictRaceData", uselist=False, backref=bkrobj("bangumi"))
-    ymd = colobj(strobj)
-    start_time = colobj(strobj)
-    distance = colobj(intobj)
-    tdscode = colobj(intobj)
-    right_left = colobj(intobj)
-    in_out = colobj(intobj)
-    shubetsu = colobj(intobj)
-    joken = colobj(strobj)
-    kigo = colobj(intobj)
-    horse_kind_joken = colobj(intobj)
-    horse_sex_joken = colobj(intobj)
-    inter_race_joken = colobj(intobj)
-    juryo = colobj(intobj)
-    grade = colobj(intobj)
-    race_name = colobj(strobj)
-    kai = colobj(strobj)
-    num_of_all_horse = colobj(intobj)
-    course = colobj(intobj)
-    kaisai_kbn = colobj(intobj)
-    race_name_short = colobj(strobj)
-    race_name_9char = colobj(strobj)
-    data_kbn = colobj(intobj)
-    money1st = colobj(intobj)
-    money2nd = colobj(intobj)
-    money3rd = colobj(intobj)
-    money4th = colobj(intobj)
-    money5th = colobj(intobj)
-    sannyu_money1st = colobj(intobj)
-    sannyu_money2nd = colobj(intobj)
-    sellflg_tansho = colobj(intobj)
-    sellflg_fukusho = colobj(intobj)
-    sellflg_wakuren = colobj(intobj)
-    sellflg_umaren = colobj(intobj)
-    sellflg_umatan = colobj(intobj)
-    sellflg_wide = colobj(intobj)
-    sellflg_sanrenpuku = colobj(intobj)
-    sellflg_sanrentan = colobj(intobj)
-    yobi = colobj(intobj)
-    win5flg = colobj(intobj)
+    returninfo: Mapped[List["ReturninfoData"]] = relationship(
+        "ReturninfoData", uselist=False, backref=backref("bangumi")
+    )
+    umaren_odds: Mapped[List["UmarenOddsData"]] = relationship(
+        "UmarenOddsData", uselist=False, backref=backref("bangumi")
+    )
+    wide_odds: Mapped[List["WideOddsData"]] = relationship(
+        "WideOddsData", uselist=False, backref=backref("bangumi")
+    )
+    wakuren_odds: Mapped[List["WakurenOddsData"]] = relationship(
+        "WakurenOddsData", uselist=False, backref=backref("bangumi")
+    )
+    predict_race: Mapped[List["PredictRaceData"]] = relationship(
+        "PredictRaceData", uselist=False, backref=backref("bangumi")
+    )
+    ymd: Mapped[str] = mapped_column()
+    start_time: Mapped[str] = mapped_column()
+    distance: Mapped[int] = mapped_column()
+    tdscode: Mapped[int] = mapped_column()
+    right_left: Mapped[int] = mapped_column()
+    in_out: Mapped[int] = mapped_column()
+    shubetsu: Mapped[int] = mapped_column()
+    joken: Mapped[str] = mapped_column()
+    kigo: Mapped[int] = mapped_column()
+    horse_kind_joken: Mapped[int] = mapped_column()
+    horse_sex_joken: Mapped[int] = mapped_column()
+    inter_race_joken: Mapped[int] = mapped_column()
+    juryo: Mapped[int] = mapped_column()
+    grade: Mapped[int] = mapped_column()
+    race_name: Mapped[str] = mapped_column()
+    kai: Mapped[str] = mapped_column()
+    num_of_all_horse: Mapped[int] = mapped_column()
+    course: Mapped[int] = mapped_column()
+    kaisai_kbn: Mapped[int] = mapped_column()
+    race_name_short: Mapped[str] = mapped_column()
+    race_name_9char: Mapped[str] = mapped_column()
+    data_kbn: Mapped[int] = mapped_column()
+    money1st: Mapped[int] = mapped_column()
+    money2nd: Mapped[int] = mapped_column()
+    money3rd: Mapped[int] = mapped_column()
+    money4th: Mapped[int] = mapped_column()
+    money5th: Mapped[int] = mapped_column()
+    sannyu_money1st: Mapped[int] = mapped_column()
+    sannyu_money2nd: Mapped[int] = mapped_column()
+    sellflg_tansho: Mapped[int] = mapped_column()
+    sellflg_fukusho: Mapped[int] = mapped_column()
+    sellflg_wakuren: Mapped[int] = mapped_column()
+    sellflg_umaren: Mapped[int] = mapped_column()
+    sellflg_umatan: Mapped[int] = mapped_column()
+    sellflg_wide: Mapped[int] = mapped_column()
+    sellflg_sanrenpuku: Mapped[int] = mapped_column()
+    sellflg_sanrentan: Mapped[int] = mapped_column()
+    yobi: Mapped[int] = mapped_column()
+    win5flg: Mapped[int] = mapped_column()
