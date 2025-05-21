@@ -1,13 +1,25 @@
-from ..sessioncontroll import baseobj, colobj, fkyobj, floatobj, strobj
+from sqlalchemy import ForeignKey
+from sqlalchemy.orm import Mapped, mapped_column
+
+from ..sessioncontroll import db
 
 
-class PredictData(baseobj):
+class PredictData(db.Model):
+    """予想データ.
+
+    Args:
+        db (_type_): _description_
+
+    """
+
     __tablename__ = "predict"
-    racehorsekey = colobj(strobj, fkyobj("racehorse.racehorsekey"), primary_key=True)
-    pp_icchaku = colobj(floatobj)
-    pp_nichaku = colobj(floatobj)
-    pp_sanchaku = colobj(floatobj)
-    rentai_rate = colobj(floatobj)
-    fukusho_rate = colobj(floatobj)
-    tansho_odds = colobj(floatobj)
-    fukusho_odds = colobj(floatobj)
+    racehorsekey: Mapped[str] = mapped_column(
+        ForeignKey("racehorse.racehorsekey"), primary_key=True
+    )
+    pp_icchaku: Mapped[float] = mapped_column()
+    pp_nichaku: Mapped[float] = mapped_column()
+    pp_sanchaku: Mapped[float] = mapped_column()
+    rentai_rate: Mapped[float] = mapped_column()
+    fukusho_rate: Mapped[float] = mapped_column()
+    tansho_odds: Mapped[float] = mapped_column()
+    fukusho_odds: Mapped[float] = mapped_column()
