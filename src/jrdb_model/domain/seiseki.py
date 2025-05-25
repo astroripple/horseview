@@ -1,5 +1,7 @@
 """成績データ."""
 
+from typing import Optional
+
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import Mapped, backref, mapped_column, relationship
 
@@ -25,7 +27,7 @@ class SeisekiData(db.Model):
     kai: Mapped[int] = mapped_column()
     day: Mapped[str] = mapped_column()
     raceno: Mapped[int] = mapped_column()
-    seisekirace: Mapped["SeisekiRaceData"] = relationship(
+    seisekirace: Mapped[Optional["SeisekiRaceData"]] = relationship(
         "SeisekiRaceData", uselist=False, backref=backref("seiseki")
     )
     num: Mapped[int] = mapped_column()

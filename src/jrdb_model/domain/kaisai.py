@@ -1,6 +1,6 @@
 """開催データ定義."""
 
-from typing import List
+from typing import List, Optional
 
 from sqlalchemy.orm import Mapped, backref, mapped_column, relationship
 
@@ -15,7 +15,7 @@ class KaisaiData(db.Model):
     __tablename__ = "kaisai"
     kaisaikey: Mapped[int] = mapped_column(primary_key=True)
     # 子に対して
-    races: Mapped[List["BangumiData"]] = relationship(
+    races: Mapped[Optional[List["BangumiData"]]] = relationship(
         "BangumiData", backref=backref("kaisai"), innerjoin=True
     )
     ymd: Mapped[int] = mapped_column()

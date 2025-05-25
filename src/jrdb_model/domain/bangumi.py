@@ -1,6 +1,6 @@
 """レースデータ."""
 
-from typing import List
+from typing import List, Optional
 
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import Mapped, backref, mapped_column, relationship
@@ -27,24 +27,24 @@ class BangumiData(db.Model):
     # 親に対して
     kaisaikey: Mapped[str] = mapped_column(ForeignKey("kaisai.kaisaikey"))
     # 子に対して
-    racehorses: Mapped[List["RacehorseData"]] = relationship(
+    racehorses: Mapped[Optional[List["RacehorseData"]]] = relationship(
         "RacehorseData", backref=backref("bangumi"), innerjoin=True
     )
 
     # 1:1
-    returninfo: Mapped["ReturninfoData"] = relationship(
+    returninfo: Mapped[Optional["ReturninfoData"]] = relationship(
         "ReturninfoData", uselist=False, backref=backref("bangumi")
     )
-    umaren_odds: Mapped["UmarenOddsData"] = relationship(
+    umaren_odds: Mapped[Optional["UmarenOddsData"]] = relationship(
         "UmarenOddsData", uselist=False, backref=backref("bangumi")
     )
-    wide_odds: Mapped["WideOddsData"] = relationship(
+    wide_odds: Mapped[Optional["WideOddsData"]] = relationship(
         "WideOddsData", uselist=False, backref=backref("bangumi")
     )
-    wakuren_odds: Mapped["WakurenOddsData"] = relationship(
+    wakuren_odds: Mapped[Optional["WakurenOddsData"]] = relationship(
         "WakurenOddsData", uselist=False, backref=backref("bangumi")
     )
-    predict_race: Mapped["PredictRaceData"] = relationship(
+    predict_race: Mapped[Optional["PredictRaceData"]] = relationship(
         "PredictRaceData", uselist=False, backref=backref("bangumi")
     )
     ymd: Mapped[str] = mapped_column()

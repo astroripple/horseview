@@ -1,6 +1,6 @@
 """競走馬データ."""
 
-from typing import List
+from typing import Optional
 
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import Mapped, backref, mapped_column, relationship
@@ -28,22 +28,22 @@ class RacehorseData(db.Model):
     # 親に対して
     racekey: Mapped[str] = mapped_column(ForeignKey("bangumi.racekey"))
     # 1:1
-    trainanalysis: Mapped["TrainAnalysisData"] = relationship(
+    trainanalysis: Mapped[Optional["TrainAnalysisData"]] = relationship(
         "TrainAnalysisData", uselist=False, backref=backref("racehorse"), innerjoin=True
     )
-    trainoikiri: Mapped["TrainOikiriData"] = relationship(
+    trainoikiri: Mapped[Optional["TrainOikiriData"]] = relationship(
         "TrainOikiriData", uselist=False, backref=backref("racehorse"), innerjoin=True
     )
-    horse_base: Mapped["HorsebaseData"] = relationship(
+    horse_base: Mapped[Optional["HorsebaseData"]] = relationship(
         "HorsebaseData", uselist=False, backref=backref("racehorse"), innerjoin=True
     )
-    result: Mapped["SeisekiData"] = relationship(
+    result: Mapped[Optional["SeisekiData"]] = relationship(
         "SeisekiData", uselist=False, backref=backref("racehorse"), innerjoin=False
     )
-    predict: Mapped["PredictData"] = relationship(
+    predict: Mapped[Optional["PredictData"]] = relationship(
         "PredictData", uselist=False, backref=backref("racehorse"), innerjoin=False
     )
-    calculated_score: Mapped["CalculatedScoreData"] = relationship(
+    calculated_score: Mapped[Optional["CalculatedScoreData"]] = relationship(
         "CalculatedScoreData",
         uselist=False,
         backref=backref("racehorse"),
