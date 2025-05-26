@@ -14,10 +14,6 @@ class KaisaiData(db.Model):
 
     __tablename__ = "kaisai"
     kaisaikey: Mapped[int] = mapped_column(primary_key=True)
-    # 子に対して
-    races: Mapped[Optional[List["BangumiData"]]] = relationship(
-        "BangumiData", backref=backref("kaisai"), innerjoin=True
-    )
     ymd: Mapped[int] = mapped_column()
     kaisai_kbn: Mapped[int] = mapped_column()
     day_of_week: Mapped[str] = mapped_column()
@@ -49,3 +45,8 @@ class KaisaiData(db.Model):
     tennatsu: Mapped[int] = mapped_column()
     stopfreeze: Mapped[int] = mapped_column()
     precipitation: Mapped[int] = mapped_column()
+
+    # 子に対して
+    races: Mapped[Optional[List["BangumiData"]]] = relationship(
+        "BangumiData", backref=backref("kaisai"), innerjoin=True, default=None
+    )

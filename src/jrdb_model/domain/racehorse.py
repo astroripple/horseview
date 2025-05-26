@@ -27,28 +27,6 @@ class RacehorseData(db.Model):
     racehorsekey: Mapped[str] = mapped_column(primary_key=True)
     # 親に対して
     racekey: Mapped[str] = mapped_column(ForeignKey("bangumi.racekey"))
-    # 1:1
-    trainanalysis: Mapped[Optional["TrainAnalysisData"]] = relationship(
-        "TrainAnalysisData", uselist=False, backref=backref("racehorse"), innerjoin=True
-    )
-    trainoikiri: Mapped[Optional["TrainOikiriData"]] = relationship(
-        "TrainOikiriData", uselist=False, backref=backref("racehorse"), innerjoin=True
-    )
-    horse_base: Mapped[Optional["HorsebaseData"]] = relationship(
-        "HorsebaseData", uselist=False, backref=backref("racehorse"), innerjoin=True
-    )
-    result: Mapped[Optional["SeisekiData"]] = relationship(
-        "SeisekiData", uselist=False, backref=backref("racehorse"), innerjoin=False
-    )
-    predict: Mapped[Optional["PredictData"]] = relationship(
-        "PredictData", uselist=False, backref=backref("racehorse"), innerjoin=False
-    )
-    calculated_score: Mapped[Optional["CalculatedScoreData"]] = relationship(
-        "CalculatedScoreData",
-        uselist=False,
-        backref=backref("racehorse"),
-        innerjoin=False,
-    )
     bacode: Mapped[int] = mapped_column()
     year: Mapped[int] = mapped_column()
     kai: Mapped[int] = mapped_column()
@@ -208,3 +186,47 @@ class RacehorseData(db.Model):
     hobokusaki: Mapped[str] = mapped_column()
     hobokusaki_rank: Mapped[str] = mapped_column()
     trainer_rank: Mapped[int] = mapped_column()
+
+    # 1:1
+    trainanalysis: Mapped[Optional["TrainAnalysisData"]] = relationship(
+        "TrainAnalysisData",
+        uselist=False,
+        backref=backref("racehorse"),
+        innerjoin=True,
+        default=None,
+    )
+    trainoikiri: Mapped[Optional["TrainOikiriData"]] = relationship(
+        "TrainOikiriData",
+        uselist=False,
+        backref=backref("racehorse"),
+        innerjoin=True,
+        default=None,
+    )
+    horse_base: Mapped[Optional["HorsebaseData"]] = relationship(
+        "HorsebaseData",
+        uselist=False,
+        backref=backref("racehorse"),
+        innerjoin=True,
+        default=None,
+    )
+    result: Mapped[Optional["SeisekiData"]] = relationship(
+        "SeisekiData",
+        uselist=False,
+        backref=backref("racehorse"),
+        innerjoin=False,
+        default=None,
+    )
+    predict: Mapped[Optional["PredictData"]] = relationship(
+        "PredictData",
+        uselist=False,
+        backref=backref("racehorse"),
+        innerjoin=False,
+        default=None,
+    )
+    calculated_score: Mapped[Optional["CalculatedScoreData"]] = relationship(
+        "CalculatedScoreData",
+        uselist=False,
+        backref=backref("racehorse"),
+        innerjoin=False,
+        default=None,
+    )

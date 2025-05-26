@@ -27,9 +27,6 @@ class SeisekiData(db.Model):
     kai: Mapped[int] = mapped_column()
     day: Mapped[str] = mapped_column()
     raceno: Mapped[int] = mapped_column()
-    seisekirace: Mapped[Optional["SeisekiRaceData"]] = relationship(
-        "SeisekiRaceData", uselist=False, backref=backref("seiseki")
-    )
     num: Mapped[int] = mapped_column()
     raceseisekikey: Mapped[str] = mapped_column()
     blood: Mapped[int] = mapped_column()
@@ -109,3 +106,7 @@ class SeisekiData(db.Model):
     race_pace_flow: Mapped[int] = mapped_column()
     horse_pace_flow: Mapped[int] = mapped_column()
     corner4_course_position: Mapped[int] = mapped_column()
+
+    seisekirace: Mapped[Optional["SeisekiRaceData"]] = relationship(
+        "SeisekiRaceData", uselist=False, backref=backref("seiseki"), default=None
+    )
