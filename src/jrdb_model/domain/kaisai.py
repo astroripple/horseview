@@ -14,7 +14,7 @@ class KaisaiData(db.Model):
     """開催データ."""
 
     __tablename__ = "kaisai"
-    kaisaikey: Mapped[int] = mapped_column(primary_key=True)
+    kaisaikey: Mapped[str] = mapped_column(String(255), primary_key=True)
     ymd: Mapped[int] = mapped_column()
     kaisai_kbn: Mapped[int] = mapped_column()
     day_of_week: Mapped[str] = mapped_column(String(255))
