@@ -1,6 +1,6 @@
 """払い戻しデータ."""
 
-from sqlalchemy import ForeignKey
+from sqlalchemy import ForeignKey, String
 from sqlalchemy.orm import Mapped, mapped_column
 
 from ..sessioncontroll import db
@@ -16,7 +16,7 @@ class ReturninfoData(db.Model):
 
     __tablename__ = "returninfo"
     racekey: Mapped[str] = mapped_column(
-        ForeignKey("bangumi.racekey"), primary_key=True
+        String(255), ForeignKey("bangumi.racekey"), primary_key=True
     )
     win1_num: Mapped[int] = mapped_column()
     win1_ret: Mapped[int] = mapped_column()

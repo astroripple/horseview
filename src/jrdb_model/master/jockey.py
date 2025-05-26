@@ -1,5 +1,6 @@
 """騎手データ."""
 
+from sqlalchemy import String
 from sqlalchemy.orm import Mapped, mapped_column
 
 from ..sessioncontroll import db
@@ -17,16 +18,16 @@ class JockeyData(db.Model):
     jockey_code: Mapped[int] = mapped_column(primary_key=True)
     delete_flg: Mapped[int] = mapped_column()
     delete_ymd: Mapped[int] = mapped_column()
-    jockey_name: Mapped[str] = mapped_column()
-    jockey_name_kana: Mapped[str] = mapped_column()
-    jockey_name_short: Mapped[str] = mapped_column()
+    jockey_name: Mapped[str] = mapped_column(String(255))
+    jockey_name_kana: Mapped[str] = mapped_column(String(255))
+    jockey_name_short: Mapped[str] = mapped_column(String(255))
     shozoku_code: Mapped[int] = mapped_column()
-    shozoku_region: Mapped[str] = mapped_column()
+    shozoku_region: Mapped[str] = mapped_column(String(255))
     birthday: Mapped[int] = mapped_column()
     get_licence_year: Mapped[int] = mapped_column()
     minarai_kbn: Mapped[int] = mapped_column()
     trainer_code: Mapped[int] = mapped_column()
-    jockey_comment: Mapped[str] = mapped_column()
+    jockey_comment: Mapped[str] = mapped_column(String(255))
     comment_ymd: Mapped[int] = mapped_column()
     this_leading: Mapped[int] = mapped_column()
     this_flat_seiseki_1st: Mapped[int] = mapped_column()

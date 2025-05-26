@@ -2,7 +2,7 @@
 
 from typing import List, Optional
 
-from sqlalchemy import ForeignKey
+from sqlalchemy import ForeignKey, String
 from sqlalchemy.orm import Mapped, backref, mapped_column, relationship
 
 from ..sessioncontroll import db
@@ -23,30 +23,30 @@ class BangumiData(db.Model):
     """
 
     __tablename__ = "bangumi"
-    racekey: Mapped[str] = mapped_column(primary_key=True)
+    racekey: Mapped[str] = mapped_column(String(255), primary_key=True)
     # 親に対して
-    kaisaikey: Mapped[str] = mapped_column(ForeignKey("kaisai.kaisaikey"))
-    ymd: Mapped[str] = mapped_column()
-    start_time: Mapped[str] = mapped_column()
+    kaisaikey: Mapped[str] = mapped_column(String(255), ForeignKey("kaisai.kaisaikey"))
+    ymd: Mapped[str] = mapped_column(String(255))
+    start_time: Mapped[str] = mapped_column(String(255))
     distance: Mapped[int] = mapped_column()
     tdscode: Mapped[int] = mapped_column()
     right_left: Mapped[int] = mapped_column()
     in_out: Mapped[int] = mapped_column()
     shubetsu: Mapped[int] = mapped_column()
-    joken: Mapped[str] = mapped_column()
+    joken: Mapped[str] = mapped_column(String(255))
     kigo: Mapped[int] = mapped_column()
     horse_kind_joken: Mapped[int] = mapped_column()
     horse_sex_joken: Mapped[int] = mapped_column()
     inter_race_joken: Mapped[int] = mapped_column()
     juryo: Mapped[int] = mapped_column()
     grade: Mapped[int] = mapped_column()
-    race_name: Mapped[str] = mapped_column()
-    kai: Mapped[str] = mapped_column()
+    race_name: Mapped[str] = mapped_column(String(255))
+    kai: Mapped[str] = mapped_column(String(255))
     num_of_all_horse: Mapped[int] = mapped_column()
     course: Mapped[int] = mapped_column()
     kaisai_kbn: Mapped[int] = mapped_column()
-    race_name_short: Mapped[str] = mapped_column()
-    race_name_9char: Mapped[str] = mapped_column()
+    race_name_short: Mapped[str] = mapped_column(String(255))
+    race_name_9char: Mapped[str] = mapped_column(String(255))
     data_kbn: Mapped[int] = mapped_column()
     money1st: Mapped[int] = mapped_column()
     money2nd: Mapped[int] = mapped_column()

@@ -2,6 +2,7 @@
 
 from typing import List, Optional
 
+from sqlalchemy import String
 from sqlalchemy.orm import Mapped, backref, mapped_column, relationship
 
 from jrdb_model import BangumiData
@@ -16,8 +17,8 @@ class KaisaiData(db.Model):
     kaisaikey: Mapped[int] = mapped_column(primary_key=True)
     ymd: Mapped[int] = mapped_column()
     kaisai_kbn: Mapped[int] = mapped_column()
-    day_of_week: Mapped[str] = mapped_column()
-    course_name: Mapped[str] = mapped_column()
+    day_of_week: Mapped[str] = mapped_column(String(255))
+    course_name: Mapped[str] = mapped_column(String(255))
     tenko: Mapped[int] = mapped_column()
     turf_baba: Mapped[int] = mapped_column()
     turf_baba_abst: Mapped[int] = mapped_column()
