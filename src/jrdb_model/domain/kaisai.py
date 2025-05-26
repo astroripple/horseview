@@ -49,5 +49,5 @@ class KaisaiData(db.Model):
 
     # 子に対して
     races: Mapped[Optional[List["BangumiData"]]] = relationship(
-        "BangumiData", backref=backref("kaisai"), innerjoin=True, default=None
+        "BangumiData", backref=backref("kaisai"), innerjoin=True, default_factory=list
     )
