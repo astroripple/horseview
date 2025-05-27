@@ -207,7 +207,7 @@ class RacehorseData(db.Model):
         uselist=False,
         backref=backref("racehorse"),
         innerjoin=True,
-        default=None,
+        init=False,
     )
     result: Mapped[Optional["SeisekiData"]] = relationship(
         "SeisekiData",
