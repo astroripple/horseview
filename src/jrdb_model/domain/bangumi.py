@@ -1,8 +1,8 @@
 """レースデータ."""
 
-from typing import List
+from typing import List, Optional
 
-from sqlalchemy import ForeignKey
+from sqlalchemy import ForeignKey, String
 from sqlalchemy.orm import Mapped, backref, mapped_column, relationship
 
 from ..sessioncontroll import db
@@ -23,51 +23,30 @@ class BangumiData(db.Model):
     """
 
     __tablename__ = "bangumi"
-    racekey: Mapped[str] = mapped_column(primary_key=True)
+    racekey: Mapped[str] = mapped_column(String(255), primary_key=True)
     # 親に対して
-    kaisaikey: Mapped[str] = mapped_column(ForeignKey("kaisai.kaisaikey"))
-    # 子に対して
-    racehorses: Mapped[List["RacehorseData"]] = relationship(
-        "RacehorseData", backref=backref("bangumi"), innerjoin=True
-    )
-
-    # 1:1
-    returninfo: Mapped["ReturninfoData"] = relationship(
-        "ReturninfoData", uselist=False, backref=backref("bangumi")
-    )
-    umaren_odds: Mapped["UmarenOddsData"] = relationship(
-        "UmarenOddsData", uselist=False, backref=backref("bangumi")
-    )
-    wide_odds: Mapped["WideOddsData"] = relationship(
-        "WideOddsData", uselist=False, backref=backref("bangumi")
-    )
-    wakuren_odds: Mapped["WakurenOddsData"] = relationship(
-        "WakurenOddsData", uselist=False, backref=backref("bangumi")
-    )
-    predict_race: Mapped["PredictRaceData"] = relationship(
-        "PredictRaceData", uselist=False, backref=backref("bangumi")
-    )
-    ymd: Mapped[str] = mapped_column()
-    start_time: Mapped[str] = mapped_column()
+    kaisaikey: Mapped[str] = mapped_column(String(255), ForeignKey("kaisai.kaisaikey"))
+    ymd: Mapped[str] = mapped_column(String(255))
+    start_time: Mapped[str] = mapped_column(String(255))
     distance: Mapped[int] = mapped_column()
     tdscode: Mapped[int] = mapped_column()
     right_left: Mapped[int] = mapped_column()
     in_out: Mapped[int] = mapped_column()
     shubetsu: Mapped[int] = mapped_column()
-    joken: Mapped[str] = mapped_column()
+    joken: Mapped[str] = mapped_column(String(255))
     kigo: Mapped[int] = mapped_column()
     horse_kind_joken: Mapped[int] = mapped_column()
     horse_sex_joken: Mapped[int] = mapped_column()
     inter_race_joken: Mapped[int] = mapped_column()
     juryo: Mapped[int] = mapped_column()
     grade: Mapped[int] = mapped_column()
-    race_name: Mapped[str] = mapped_column()
-    kai: Mapped[str] = mapped_column()
+    race_name: Mapped[str] = mapped_column(String(255))
+    kai: Mapped[str] = mapped_column(String(255))
     num_of_all_horse: Mapped[int] = mapped_column()
     course: Mapped[int] = mapped_column()
     kaisai_kbn: Mapped[int] = mapped_column()
-    race_name_short: Mapped[str] = mapped_column()
-    race_name_9char: Mapped[str] = mapped_column()
+    race_name_short: Mapped[str] = mapped_column(String(255))
+    race_name_9char: Mapped[str] = mapped_column(String(255))
     data_kbn: Mapped[int] = mapped_column()
     money1st: Mapped[int] = mapped_column()
     money2nd: Mapped[int] = mapped_column()
@@ -86,3 +65,28 @@ class BangumiData(db.Model):
     sellflg_sanrentan: Mapped[int] = mapped_column()
     yobi: Mapped[int] = mapped_column()
     win5flg: Mapped[int] = mapped_column()
+
+    # 子に対して
+    racehorses: Mapped[Optional[List["RacehorseData"]]] = relationship(
+        "RacehorseData",
+        backref=backref("bangumi"),
+        innerjoin=True,
+        default_factory=list,
+    )
+
+    # 1:1
+    returninfo: Mapped[Optional["ReturninfoData"]] = relationship(
+        "ReturninfoData", uselist=False, backref=backref("bangumi"), default=None
+    )
+    umaren_odds: Mapped[Optional["UmarenOddsData"]] = relationship(
+        "UmarenOddsData", uselist=False, backref=backref("bangumi"), default=None
+    )
+    wide_odds: Mapped[Optional["WideOddsData"]] = relationship(
+        "WideOddsData", uselist=False, backref=backref("bangumi"), default=None
+    )
+    wakuren_odds: Mapped[Optional["WakurenOddsData"]] = relationship(
+        "WakurenOddsData", uselist=False, backref=backref("bangumi"), default=None
+    )
+    predict_race: Mapped[Optional["PredictRaceData"]] = relationship(
+        "PredictRaceData", uselist=False, backref=backref("bangumi"), default=None
+    )

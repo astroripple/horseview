@@ -1,7 +1,8 @@
 """開催データ定義."""
 
-from typing import List
+from typing import List, Optional
 
+from sqlalchemy import String
 from sqlalchemy.orm import Mapped, backref, mapped_column, relationship
 
 from jrdb_model import BangumiData
@@ -13,15 +14,11 @@ class KaisaiData(db.Model):
     """開催データ."""
 
     __tablename__ = "kaisai"
-    kaisaikey: Mapped[int] = mapped_column(primary_key=True)
-    # 子に対して
-    races: Mapped[List["BangumiData"]] = relationship(
-        "BangumiData", backref=backref("kaisai"), innerjoin=True
-    )
+    kaisaikey: Mapped[str] = mapped_column(String(255), primary_key=True)
     ymd: Mapped[int] = mapped_column()
     kaisai_kbn: Mapped[int] = mapped_column()
-    day_of_week: Mapped[str] = mapped_column()
-    course_name: Mapped[str] = mapped_column()
+    day_of_week: Mapped[str] = mapped_column(String(255))
+    course_name: Mapped[str] = mapped_column(String(255))
     tenko: Mapped[int] = mapped_column()
     turf_baba: Mapped[int] = mapped_column()
     turf_baba_abst: Mapped[int] = mapped_column()
@@ -49,3 +46,8 @@ class KaisaiData(db.Model):
     tennatsu: Mapped[int] = mapped_column()
     stopfreeze: Mapped[int] = mapped_column()
     precipitation: Mapped[int] = mapped_column()
+
+    # 子に対して
+    races: Mapped[Optional[List["BangumiData"]]] = relationship(
+        "BangumiData", backref=backref("kaisai"), innerjoin=True, default_factory=list
+    )

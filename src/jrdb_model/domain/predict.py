@@ -1,4 +1,4 @@
-from sqlalchemy import ForeignKey
+from sqlalchemy import ForeignKey, String
 from sqlalchemy.orm import Mapped, mapped_column
 
 from ..sessioncontroll import db
@@ -14,7 +14,7 @@ class PredictData(db.Model):
 
     __tablename__ = "predict"
     racehorsekey: Mapped[str] = mapped_column(
-        ForeignKey("racehorse.racehorsekey"), primary_key=True
+        String(255), ForeignKey("racehorse.racehorsekey"), primary_key=True
     )
     pp_icchaku: Mapped[float] = mapped_column()
     pp_nichaku: Mapped[float] = mapped_column()
